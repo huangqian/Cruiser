@@ -1,6 +1,6 @@
 ## quick-start
 
-Cruiser是一个HBase的ORM框架，主要为了解决API操作的繁琐问题。
+Cruiser是一个HBase的OM(Object Mapping)框架，主要为了解决API操作的繁琐问题。
 
 ## Example
 
