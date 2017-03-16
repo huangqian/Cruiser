@@ -21,6 +21,11 @@ public class DoubleTypeHandler extends TypeHandler<Double> {
     }
 
     @Override
+    public Double defaultValue() {
+        return 0.00d;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Double)value);
     }

@@ -1,8 +1,5 @@
 package ssy.dmp.cruiser.type;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.hadoop.hbase.util.Bytes;
-
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 

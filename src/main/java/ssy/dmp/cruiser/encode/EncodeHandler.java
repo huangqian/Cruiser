@@ -8,6 +8,6 @@ package ssy.dmp.cruiser.encode;
  */
 public interface EncodeHandler {
 
-    public <E,T> T encode(E e);
+    public <E,T> T encode(E e) throws EncodeException;
 
 }

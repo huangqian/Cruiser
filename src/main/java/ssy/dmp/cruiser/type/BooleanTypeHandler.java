@@ -22,6 +22,11 @@ public class BooleanTypeHandler extends TypeHandler<Boolean> {
     }
 
     @Override
+    public Boolean defaultValue() {
+        return null;
+    }
+
+    @Override
     public Boolean getValue(Object value) {
         return null;
     }

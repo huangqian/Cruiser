@@ -12,9 +12,12 @@ public abstract class TypeHandler<T> {
 
     public abstract T getValue(String source);
 
-    public T getValue(Object source){
+    public abstract T defaultValue();
 
-        if(source instanceof String){
+    public T getValue(Object source){
+        if (source == null){
+            return defaultValue();
+        }else if(source instanceof String){
             return getValue((String)source);
         }else if(source instanceof byte[]){
             return getValue((byte[])source);

@@ -7,8 +7,14 @@ package ssy.dmp.cruiser.encode;
  * Time: 上午11:46
  */
 public class StringEncodeHandler implements EncodeHandler {
+
     @Override
-    public <E, T> T encode(E e) {
-	return (T) e.toString();
+    public <E,T> T encode(E e) throws EncodeException{
+	try {
+
+	    return (T) String.valueOf(e);
+	} catch (Exception ex) {
+	    throw new EncodeException(e.getClass() +" can't cast to String ");
+	}
     }
 }

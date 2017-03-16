@@ -22,6 +22,11 @@ public class FloatTypeHandler extends TypeHandler<Float> {
     }
 
     @Override
+    public Float defaultValue() {
+        return 0.0f;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Float)value);
     }

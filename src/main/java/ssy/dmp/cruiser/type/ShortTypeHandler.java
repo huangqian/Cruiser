@@ -21,6 +21,11 @@ public class ShortTypeHandler extends TypeHandler<Short> {
     }
 
     @Override
+    public Short defaultValue() {
+        return 0;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Short)value);
     }

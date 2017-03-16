@@ -2,6 +2,7 @@ package ssy.dmp.cruiser.wrapper;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.hadoop.hbase.client.Mutation;
+import ssy.dmp.cruiser.encode.EncodeException;
 import ssy.dmp.cruiser.encode.EncodeHandler;
 import ssy.dmp.cruiser.encode.EncodeHandlerFactory;
 import ssy.dmp.cruiser.mapping.FieldMapping;
@@ -21,16 +22,19 @@ public abstract class StatementWrapper<T extends Mutation> {
     protected Mapper mapper;
 
 
-    public byte[] getValue(FieldMapping fieldMapping, Object object) throws IllegalAccessException {
+    public byte[] getValue(FieldMapping fieldMapping, Object object) throws IllegalAccessException, EncodeException {
         if(fieldMapping == null) return null;
         EncodeHandler encodeHandler = EncodeHandlerFactory.getEncodeHandler(fieldMapping.getEncode());
         fieldMapping.getField().setAccessible(true);
         Object fieldValue = fieldMapping.getField().get(object);
-        Object value = encodeHandler.encode(fieldValue);
-        return fieldMapping.getTypeHandler().toBytes(value);
+        if(fieldValue != null) {
+            Object value = encodeHandler.encode(fieldValue);
+            return fieldMapping.getTypeHandler().toBytes(value);
+        }
+        return null;
     }
 
-    public abstract  <E> T from(E obj, byte[] rowKey) throws IllegalAccessException;
+    public abstract  <E> T from(E obj, byte[] rowKey) throws IllegalAccessException, EncodeException;
 
     public void setMapper(Mapper mapper) {
         this.mapper = mapper;

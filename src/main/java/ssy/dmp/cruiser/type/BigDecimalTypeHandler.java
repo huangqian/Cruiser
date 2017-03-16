@@ -23,6 +23,11 @@ public class BigDecimalTypeHandler extends TypeHandler<BigDecimal> {
     }
 
     @Override
+    public BigDecimal defaultValue() {
+        return null;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((BigDecimal)value);
     }

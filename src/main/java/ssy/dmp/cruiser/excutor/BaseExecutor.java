@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
+import ssy.dmp.cruiser.encode.EncodeException;
 import ssy.dmp.cruiser.mapping.Mapper;
 import ssy.dmp.cruiser.wrapper.DeleteWrapper;
 import ssy.dmp.cruiser.wrapper.PutWrapper;
@@ -43,14 +44,14 @@ public abstract class BaseExecutor implements Executor{
     }
 
     @Override
-    public <E> void put(E e, byte[] rowKey) throws IllegalAccessException, IOException {
+    public <E> void put(E e, byte[] rowKey) throws IllegalAccessException, IOException, EncodeException {
 	final PutWrapper putWrapper = new PutWrapper(this.mapper);
 	Put put = putWrapper.from(e, rowKey);
 	this.doPut(put, table);
     }
 
     @Override
-    public <E> void put(Map<byte[], E> map) throws IllegalAccessException, IOException {
+    public <E> void put(Map<byte[], E> map) throws IllegalAccessException, IOException, EncodeException {
 	final PutWrapper putWrapper = new PutWrapper(this.mapper);
 	List<Put> puts = Lists.newArrayList();
 	for(Map.Entry<byte[],E> entry : map.entrySet()){

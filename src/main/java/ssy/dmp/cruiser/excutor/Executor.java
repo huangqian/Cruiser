@@ -1,6 +1,7 @@
 package ssy.dmp.cruiser.excutor;
 
 import org.apache.hadoop.conf.Configuration;
+import ssy.dmp.cruiser.encode.EncodeException;
 import ssy.dmp.cruiser.mapping.Mapper;
 
 import java.io.IOException;
@@ -17,9 +18,9 @@ public interface Executor{
     Executor prepare(Configuration configuration, Mapper mapper) throws IOException;
 
 
-    <E> void put(E e, byte[] rowKey) throws IllegalAccessException, IOException;
+    <E> void put(E e, byte[] rowKey) throws IllegalAccessException, IOException, EncodeException;
 
-    <E> void put(Map<byte[], E> map) throws IllegalAccessException, IOException;
+    <E> void put(Map<byte[], E> map) throws IllegalAccessException, IOException, EncodeException;
 
 
    <E> void delete(E e, byte[] rowKey) throws IOException, IllegalAccessException;

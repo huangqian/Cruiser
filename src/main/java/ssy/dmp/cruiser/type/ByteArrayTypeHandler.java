@@ -18,6 +18,11 @@ public class ByteArrayTypeHandler extends TypeHandler<byte[]> {
     }
 
     @Override
+    public byte[] defaultValue() {
+        return null;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return (byte[])value;
     }

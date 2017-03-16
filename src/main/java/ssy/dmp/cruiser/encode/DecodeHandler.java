@@ -1,7 +1,5 @@
 package ssy.dmp.cruiser.encode;
 
-import org.apache.hadoop.hbase.client.Result;
-
 /**
  * Created with IntelliJ IDEA
  * Author: huangqian
@@ -10,5 +8,5 @@ import org.apache.hadoop.hbase.client.Result;
  */
 public interface DecodeHandler<T> {
 
-    public T decode(byte[] value);
+    public T decode(byte[] value)throws DecodeException;
 }

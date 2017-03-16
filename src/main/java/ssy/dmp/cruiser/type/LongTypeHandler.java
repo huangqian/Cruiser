@@ -21,6 +21,11 @@ public class LongTypeHandler extends TypeHandler<Long> {
     }
 
     @Override
+    public Long defaultValue() {
+        return 0L;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Long)value);
     }

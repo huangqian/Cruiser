@@ -21,6 +21,11 @@ public class CharacterTypeHandler extends TypeHandler<Character> {
     }
 
     @Override
+    public Character defaultValue() {
+        return null;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Character)value);
     }

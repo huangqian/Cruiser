@@ -30,7 +30,7 @@ public class ClassResolver {
 	HTable hTable = this.domainClass.getAnnotation(HTable.class);
 	if (hTable == null) return null;
 	Mapper classMapping = new Mapper();
-	classMapping.setId(this.domainClass.getTypeName().toUpperCase());
+	classMapping.setId(this.domainClass.getName().toUpperCase());
 	classMapping.setNamespace(hTable.namespace());
 	classMapping.setTableName(hTable.tableName());
 	classMapping.setType(this.domainClass);

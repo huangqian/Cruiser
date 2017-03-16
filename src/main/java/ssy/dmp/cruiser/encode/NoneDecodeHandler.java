@@ -8,7 +8,7 @@ package ssy.dmp.cruiser.encode;
  */
 public class NoneDecodeHandler implements DecodeHandler<byte[]> {
     @Override
-    public byte[] decode(byte[] value) {
+    public byte[] decode(byte[] value)throws DecodeException {
 	return value;
     }
 }

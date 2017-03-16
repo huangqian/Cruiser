@@ -1,6 +1,7 @@
 package ssy.dmp.cruiser.wrapper;
 
 import org.apache.hadoop.hbase.client.Put;
+import ssy.dmp.cruiser.encode.EncodeException;
 import ssy.dmp.cruiser.mapping.FieldMapping;
 import ssy.dmp.cruiser.mapping.Mapper;
 
@@ -21,14 +22,16 @@ public class PutWrapper extends StatementWrapper<Put> {
 
 
     @Override
-    public <E> Put from(E obj, byte[] rowKey) throws IllegalAccessException {
+    public <E> Put from(E obj, byte[] rowKey) throws IllegalAccessException, EncodeException {
         Put put = new Put(rowKey);
         byte[] value;
         byte[] qualifier;
         for(FieldMapping fieldMapping : this.mapper.getFieldMappings()){
             value = this.getValue(fieldMapping,obj);
-            qualifier = fieldMapping.getQualifier().getBytes(mapper.getCharset());
-            put.addColumn(fieldMapping.getColumnFamily(), qualifier, value);
+            if(value != null) {
+                qualifier = fieldMapping.getQualifier().getBytes(mapper.getCharset());
+                put.addColumn(fieldMapping.getColumnFamily(), qualifier, value);
+            }
         }
 	return put;
     }

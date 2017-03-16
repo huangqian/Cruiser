@@ -20,6 +20,11 @@ public class StringTypeHandler extends TypeHandler<String> {
     }
 
     @Override
+    public String defaultValue() {
+        return null;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((String)value);
     }

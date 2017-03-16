@@ -1,6 +1,6 @@
 ## quick-start
 
-Cruiser是一个HBase的OM(Object Mapping)框架，主要为了解决API操作的繁琐问题。
+Cruiser是一个HBase的ORM框架，主要为了解决API操作的繁琐问题。
 
 ## Example
 
@@ -70,7 +70,7 @@ public class SessionTest {
     public void init(){
     	this.sessionFactory = new DefaultSessionFactory();
     	configuration = HBaseConfiguration.create();
-    	configuration.set("hbase.zookeeper.quorum","zk1.com,zk2.com,zk3.com");
+    	configuration.set("hbase.zookeeper.quorum","192.168.30.104,192.168.30.105,192.168.30.106");
     	configuration.set("hbase.zookeeper.property.clientPort", "2181");
     }
 
@@ -121,7 +121,7 @@ public class SessionTest {
     public void init(){
     	this.sessionFactory = new DefaultSessionFactory();
     	configuration = HBaseConfiguration.create();
-    	configuration.set("hbase.zookeeper.quorum","zk1.com,zk2.com,zk3.com");
+    	configuration.set("hbase.zookeeper.quorum","192.168.30.104,192.168.30.105,192.168.30.106");
     	configuration.set("hbase.zookeeper.property.clientPort", "2181");
     }
 
@@ -172,7 +172,7 @@ public class SessionTest {
     public void init(){
     	this.sessionFactory = new DefaultSessionFactory();
     	configuration = HBaseConfiguration.create();
-    	configuration.set("hbase.zookeeper.quorum","zk1.com,zk2.com,zk3.com");
+    	configuration.set("hbase.zookeeper.quorum","192.168.30.104,192.168.30.105,192.168.30.106");
     	configuration.set("hbase.zookeeper.property.clientPort", "2181");
     }
 
@@ -252,7 +252,7 @@ public class SessionTest {
     public void init(){
     	this.sessionFactory = new DefaultSessionFactory();
     	configuration = HBaseConfiguration.create();
-    	configuration.set("hbase.zookeeper.quorum","zk1.com,zk2.com,zk3.com");
+    	configuration.set("hbase.zookeeper.quorum","192.168.30.104,192.168.30.105,192.168.30.106");
     	configuration.set("hbase.zookeeper.property.clientPort", "2181");
     }
 

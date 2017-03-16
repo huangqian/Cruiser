@@ -22,6 +22,11 @@ public class IntegerTypeHandler extends TypeHandler<Integer> {
     }
 
     @Override
+    public Integer defaultValue() {
+        return 0;
+    }
+
+    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Integer)value);
     }
