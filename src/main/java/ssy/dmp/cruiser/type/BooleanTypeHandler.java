@@ -27,11 +27,6 @@ public class BooleanTypeHandler extends TypeHandler<Boolean> {
     }
 
     @Override
-    public Boolean getValue(Object value) {
-        return null;
-    }
-
-    @Override
     public byte[] toBytes(Object value) {
         return Bytes.toBytes((Boolean) value);
     }
